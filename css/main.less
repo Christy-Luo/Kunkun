@@ -1,0 +1,241 @@
+// Variables
+@yellow: rgba(205, 197, 128, 1);
+@white: #fff;
+@main-color: #202d40;
+@grey: #f9f9f9;
+@font-path: "../fonts";
+.font-func(@name, @type) {
+  @font-face {
+    font-family: @name;
+    src: url("@{font-path}/@{type}-webfont.eot");
+    src: url("@{font-path}/@{type}-webfont.eot?#iefix") format("embedded-opentype"),
+      url("@{font-path}/@{type}-webfont.woff") format("woff"), url("@{font-path}/@{type}-webfont.svg") format("svg");
+  }
+}
+
+.font-func("Montserrat Black", "montserrat-black");
+.font-func("Montserrat Light", "montserrat-light");
+.font-func("Montserrat Bold", "montserrat-bold");
+.font-func("Inconsolata", "Inconsolata");
+
+// Placeholder selectors
+.transition(@property:all;@duration:0.25s;@function:linear;@delay:0s;) {
+  -webkit-transition: @property @duration @function @delay;
+  -moz-transition: @property @duration @function @delay;
+  -ms-transition: @property @duration @function @delay;
+  -o-transition: @property @duration @function @delay;
+  transition: @property @duration @function @delay;
+}
+
+/*=Typography=*/
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  font-family: "Open sans", sans-serif;
+  font-weight: 300;
+}
+
+.navbar a {
+  text-align: center;
+}
+
+.navbar a {
+  font-size: 1rem;
+}
+
+.container > h1 {
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+p,
+li {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/*=Base=*/
+
+section {
+  padding: 5em 0;
+}
+
+footer {
+  padding: 3em 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+a {
+  .transition;
+}
+
+hr {
+  width: 7%;
+}
+
+span.strong {
+  font-weight: 400;
+}
+.tag {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+
+  .tag-left {
+    i {
+      font-size: 3rem;
+      display: block;
+      padding: 1rem;
+      text-align: center;
+      color: white;
+      border-radius: 5% 40%;
+      background-color: #202d40;
+    }
+  }
+
+  .tag-body {
+    padding-left: 15px;
+    span {
+      border-radius: 0.2rem;
+      padding: 0 0.5rem;
+      font-family: "Inconsolata";
+      font-weight: 100;
+      font-size: 14px;
+      letter-spacing: 1px;
+      color: @white;
+      background-color: @main-color;
+    }
+  }
+}
+
+.sec-li {
+  margin: 0.6rem 0;
+  font-size: 1rem;
+}
+/*=Layout=*/
+
+.sec-news,
+.sec-invited,
+.sec-awards {
+  background-color: @grey;
+}
+
+/*Header*/
+
+.navbar-default {
+  background: @main-color;
+  .navbar-brand {
+    color: @white;
+    font: bold 1.1rem "Montserrat Black", sans-serif;
+    &:hover {
+      color: @yellow;
+    }
+  }
+  .navbar-nav > li > a {
+    color: @white;
+    &:hover,
+    &:focus {
+      color: @yellow;
+    }
+    &:active {
+      color: darken(@yellow, 5%);
+    }
+  }
+  .navbar-collapse.in,
+  .navbar-collapse.collapsing {
+    background-color: @white;
+    .navbar-nav > li > a {
+      color: @main-color;
+      &:hover,
+      &:focus {
+        color: @yellow;
+      }
+      &:active {
+        color: darken(@yellow, 5%);
+      }
+    }
+  }
+}
+
+/*Main*/
+
+.sec-main {
+  position: relative;
+  background: @grey;
+  padding: 5rem 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  .bg {
+    border-radius: 1rem;
+  }
+  .title {
+    font: bold 1.6rem "Montserrat Light", sans-serif;
+    margin: 1.2rem 0;
+  }
+  p {
+    line-height: 1.7;
+  }
+  .flex-left,
+  .flex-right {
+    margin: 0 2rem;
+  }
+}
+
+/*About*/
+
+.sec-about a {
+  color: #000;
+  &:hover,
+  &:focus {
+    color: @yellow;
+  }
+}
+
+/*Publications*/
+.sec-publications {
+  .media {
+    margin: 0 2rem;
+    .media-heading {
+      color: @main-color;
+    }
+    .media-body {
+      padding-left: 2rem;
+      .media-people {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+/*Invited*/
+
+.sec-invited {
+  text-align: center;
+}
+
+/*Awards*/
+
+.sec-awards {
+  .sec-li{
+    text-align: left;
+  }
+}
+
+/*Footer*/
+
+footer {
+  background: @main-color;
+  color: @white;
+  text-align: center;
+  vertical-align: middle;
+}
